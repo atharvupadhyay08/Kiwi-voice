@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./styles.css";
 import { AuthProvider } from "./contexts/AuthContext";
 
@@ -17,6 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function AppWrapper() {
   const location = useLocation();
 
+  // Hide navbar & footer only on login + dashboard
   const hideNavbarAndFooter =
     location.pathname === "/login" || location.pathname === "/dashboard";
 
@@ -42,8 +43,8 @@ function AppWrapper() {
           }
         />
 
-        {/* Redirect unknown routes to home */}
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* Redirect all unknown routes */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       {!hideNavbarAndFooter && <Footer />}
@@ -54,6 +55,7 @@ function AppWrapper() {
 export default function App() {
   return (
     <AuthProvider>
+      {/* HashRouter is REQUIRED for GitHub Pages hosting */}
       <Router>
         <AppWrapper />
       </Router>
