@@ -12,82 +12,127 @@ export default function Login() {
     e.preventDefault();
     if (!email || !password) return alert("Enter email and password");
 
-    // Simulate authorization (replace with API call if needed)
-    const userData = { email };
-    login(userData);
-
-    navigate('/dashboard'); // redirect to dashboard after login
+    login({ email });
+    navigate('/dashboard');
   };
 
   return (
-    <div style={styles.container}>
-      <form style={styles.card} onSubmit={handleLogin}>
-        <h2 style={styles.title}>Login to Kiwi</h2>
+    <div style={styles.wrapper}>
+      <div style={styles.card}>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={styles.input}
-        />
+        {/* Kiwi Logo + Title */}
+        <div style={styles.header}>
+          <span style={styles.emoji}>🥝</span>
+          <h2 style={styles.title}>Welcome to Kiwi</h2>
+          <p style={styles.subtitle}>Smart care, made simple.</p>
+        </div>
 
-        <button type="submit" style={styles.button}>Login</button>
-      </form>
+        {/* Login Form */}
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            style={styles.input}
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={styles.input}
+          />
+
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+        </form>
+
+        <p style={styles.footerText}>
+          Forgot password? <span style={styles.link}>Reset</span>
+        </p>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '80vh',
-    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-    backgroundColor: '#f9f9f9',
+  wrapper: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(135deg, #e8ffe4, #c7f7cd, #a7efb9)",
+    padding: "20px",
   },
+
   card: {
-    backgroundColor: '#fff',
-    padding: '50px 40px',
-    borderRadius: '12px',
-    boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-    textAlign: 'center',
-    maxWidth: '400px',
-    width: '100%',
+    width: "100%",
+    maxWidth: "420px",
+    background: "#ffffff",
+    padding: "45px 35px",
+    borderRadius: "18px",
+    boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
+    textAlign: "center",
   },
+
+  header: {
+    marginBottom: "25px",
+  },
+
+  emoji: {
+    fontSize: "55px",
+  },
+
   title: {
-    marginBottom: '25px',
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#1b3a2a',
+    fontSize: "28px",
+    fontWeight: "700",
+    marginTop: "10px",
+    color: "#1b3a2a",
   },
+
+  subtitle: {
+    color: "#608069",
+    fontSize: "14px",
+    marginTop: "4px",
+  },
+
   input: {
-    width: '100%',
-    padding: '12px 15px',
-    margin: '10px 0',
-    borderRadius: '8px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
+    width: "100%",
+    padding: "14px 16px",
+    margin: "10px 0",
+    borderRadius: "10px",
+    border: "1px solid #c7d7cc",
+    fontSize: "15px",
+    outline: "none",
+    transition: "0.2s",
   },
+
   button: {
-    width: '100%',
-    padding: '12px 15px',
-    marginTop: '20px',
-    borderRadius: '8px',
-    border: 'none',
-    backgroundColor: '#4CAF50',
-    color: '#fff',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    transition: 'background 0.3s',
+    width: "100%",
+    padding: "14px",
+    marginTop: "15px",
+    background: "#47b567",
+    color: "#fff",
+    border: "none",
+    fontSize: "17px",
+    borderRadius: "10px",
+    cursor: "pointer",
+    fontWeight: "600",
+    transition: "0.3s",
+  },
+
+  footerText: {
+    marginTop: "18px",
+    fontSize: "14px",
+    color: "#6c7a72",
+  },
+
+  link: {
+    color: "#2e9b52",
+    fontWeight: "600",
+    cursor: "pointer",
   },
 };

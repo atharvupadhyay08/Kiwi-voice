@@ -1,5 +1,5 @@
 /* -------------------------------------------------------
-   GLOBAL STYLE RESET + THEME
+   GLOBAL RESET + THEME
 ---------------------------------------------------------*/
 * {
   margin: 0;
@@ -14,68 +14,153 @@ body {
   line-height: 1.6;
 }
 
-/* Color Palette */
 :root {
-  --primary: #4CAF50;          /* Kiwi green */
+  --primary: #4CAF50;
   --dark: #111;
   --light: #fff;
   --gray: #6c757d;
   --bg-light: #f8f9fb;
 }
 
-/* Smooth animations */
 a, button, .card, .navbar {
   transition: all 0.25s ease;
 }
 
 /* -------------------------------------------------------
-   NAVBAR
+   NAVBAR RESPONSIVE + CLEAN
 ---------------------------------------------------------*/
 .navbar {
   width: 100%;
-  padding: 20px 50px;
-  background: #fff;
+  background: #ffffffcc;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 12px 0;
+  z-index: 999;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #eee;
+  justify-content: space-between;
 }
 
-.navbar h2 {
+/* LOGO */
+.nav-logo {
   font-size: 28px;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.navbar a {
-  margin-left: 25px;
-  font-size: 17px;
-  color: #333;
+  font-weight: 800;
   text-decoration: none;
-  font-weight: 500;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
 }
 
-.navbar a:hover {
-  color: var(--primary);
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+/* Nav links desktop */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 17px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #4CAF50;
+}
+
+/* Login button */
+.nav-btn {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  opacity: 0.9;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #111;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+/* ---------------- MOBILE NAV ---------------- */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 25px 0;
+    gap: 20px;
+    display: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 19px;
+    padding: 6px 0;
+  }
+
+  .nav-btn {
+    padding: 12px 26px;
+    font-size: 18px;
+  }
 }
 
 /* -------------------------------------------------------
-   HERO SECTION
+   HERO
 ---------------------------------------------------------*/
 .hero {
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 120px 20px 90px;
   background: linear-gradient(to bottom, #ffffff, #eef6f0);
 }
 
 .hero h1 {
-  font-size: 45px;
+  font-size: 48px;
   font-weight: 800;
-  color: #111;
   margin-bottom: 20px;
+  color: #111;
 }
 
 .hero p {
@@ -85,6 +170,20 @@ a, button, .card, .navbar {
   margin: 0 auto 40px;
 }
 
+/* mobile hero */
+@media (max-width: 768px) {
+  .hero {
+    padding: 90px 20px 70px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+}
+
+/* -------------------------------------------------------
+   BUTTONS
+---------------------------------------------------------*/
 .button-primary,
 .button-secondary {
   padding: 14px 28px;
@@ -99,7 +198,6 @@ a, button, .card, .navbar {
   background: var(--primary);
   color: #fff;
 }
-
 .button-primary:hover {
   opacity: 0.85;
 }
@@ -108,7 +206,6 @@ a, button, .card, .navbar {
   background: #e8e8e8;
   color: #222;
 }
-
 .button-secondary:hover {
   background: #dcdcdc;
 }
@@ -146,12 +243,12 @@ a, button, .card, .navbar {
 }
 
 .card {
-  background: #fff;
+  background: white;
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  text-align: center;
   border: 1px solid #eee;
+  text-align: center;
 }
 
 .card:hover {
@@ -159,17 +256,8 @@ a, button, .card, .navbar {
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.card p {
-  color: #555;
-}
-
 /* -------------------------------------------------------
-   STAT CARDS
+   STATS
 ---------------------------------------------------------*/
 .stat-card {
   background: #fff;
@@ -182,7 +270,6 @@ a, button, .card, .navbar {
 .stat-card h1 {
   font-size: 50px;
   color: var(--primary);
-  margin-bottom: 10px;
 }
 
 .stat-card p {
@@ -191,7 +278,7 @@ a, button, .card, .navbar {
 }
 
 /* -------------------------------------------------------
-   COMPARISON BOX
+   COMPARISON BOXES
 ---------------------------------------------------------*/
 .comparison {
   display: flex;
@@ -216,13 +303,13 @@ a, button, .card, .navbar {
 
 .comp-box ul li {
   margin-bottom: 8px;
-  color: #444;
 }
 
 /* -------------------------------------------------------
    CONTACT FORM
 ---------------------------------------------------------*/
-form input, form textarea {
+form input,
+form textarea {
   width: 100%;
   padding: 14px;
   margin: 10px 0;
@@ -241,10 +328,6 @@ form button {
   cursor: pointer;
 }
 
-form button:hover {
-  opacity: 0.85;
-}
-
 /* -------------------------------------------------------
    FOOTER
 ---------------------------------------------------------*/
@@ -252,29 +335,12 @@ form button:hover {
   padding: 40px;
   text-align: center;
   background: #fff;
-  color: #666;
-  margin-top: 80px;
   border-top: 1px solid #eee;
+  margin-top: 80px;
+  color: #666;
 }
 
 .footer a {
-  text-decoration: none;
   color: var(--primary);
-}
-
-/* -------------------------------------------------------
-   MOBILE
----------------------------------------------------------*/
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .navbar {
-    padding: 15px 25px;
-  }
-
-  .navbar a {
-    margin-left: 15px;
-  }
+  text-decoration: none;
 }
