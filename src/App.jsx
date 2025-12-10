@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import "./styles.css";
 import { AuthProvider } from "./contexts/AuthContext";
+import { FormspreeProvider } from "@formspree/react";
 
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -55,10 +56,12 @@ function AppWrapper() {
 export default function App() {
   return (
     <AuthProvider>
-      {/* HashRouter is REQUIRED for GitHub Pages hosting */}
-      <Router>
-        <AppWrapper />
-      </Router>
+      {/* Formspree provider wraps the entire app */}
+      <FormspreeProvider project="xqaryyab">
+        <Router>
+          <AppWrapper />
+        </Router>
+      </FormspreeProvider>
     </AuthProvider>
   );
 }

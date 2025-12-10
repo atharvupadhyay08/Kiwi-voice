@@ -1,15 +1,16 @@
 import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ContactPage = () => {
+  const [state, handleSubmit] = useForm("xqaryyab");
+
   return (
     <div>
 
       {/* HERO */}
       <section className="hero">
         <h1>Contact Us</h1>
-        <p>
-          Have questions? Need support? We’re here to help you anytime.
-        </p>
+        <p>Have questions? Need support? We're here to help you anytime.</p>
       </section>
 
       {/* CONTACT SECTION */}
@@ -19,50 +20,38 @@ const ContactPage = () => {
           Fill out the form below and our support team will reach out within 24 hours.
         </p>
 
-        {/* Contact Form Card */}
-        <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
-          <form
-            action="https://formspree.io/f/xqaryyab"
-            method="POST"
-            className="contact-form"
-          >
+        {/* SUCCESS MESSAGE */}
+        {state.succeeded && (
+          <div className="card" style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
+            <h3>Message Sent ✔</h3>
+            <p>Thank you for contacting us! We will respond shortly.</p>
+          </div>
+        )}
 
-            <label>Full Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="John Doe"
-              required
-            />
+        {!state.succeeded && (
+          <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
+            <form onSubmit={handleSubmit} className="contact-form">
 
-            <label>Email Address</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="yourname@example.com"
-              required
-            />
+              <label>Full Name</label>
+              <input type="text" name="name" required />
 
-            <label>Phone Number</label>
-            <input
-              type="text"
-              name="phone"
-              placeholder="+1 800 123 4567"
-            />
+              <label>Email Address</label>
+              <input type="email" name="email" required />
+              <ValidationError field="email" errors={state.errors} />
 
-            <label>Your Message</label>
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="How can we assist you?"
-              required
-            ></textarea>
+              <label>Phone Number</label>
+              <input type="text" name="phone" />
 
-            <button type="submit" className="button-primary">
-              Send Message
-            </button>
-          </form>
-        </div>
+              <label>Your Message</label>
+              <textarea name="message" rows="5" required />
+              <ValidationError field="message" errors={state.errors} />
+
+              <button type="submit" className="button-primary" disabled={state.submitting}>
+                {state.submitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
+        )}
 
         {/* SUPPORT INFO */}
         <div className="section" style={{ marginTop: "40px" }}>
@@ -95,6 +84,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-//pass :7#BpfQB@zaCD6Ca->Formspree
-
