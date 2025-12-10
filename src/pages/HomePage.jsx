@@ -62,7 +62,7 @@ const HomePage = () => {
       {/* ⭐ NEW VIDEO SECTION ⭐ */}
       <div className="video-section">
         <video
-          src={`${import.meta.env.BASE_URL}Hero.mp4`}
+          src="/Kiwi-voice/Hero.mp4"
           autoPlay
           loop
           muted
