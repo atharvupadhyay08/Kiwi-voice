@@ -27,13 +27,16 @@ export default function Navbar() {
           <Link to="/about" onClick={() => setOpen(false)}>About</Link>
           <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
 
-          <Link
-            to="/login"
+          {/* Updated Login Button */}
+          <a
+            href="http://app.kiwivoiceassistant.com"
             className="nav-btn"
             onClick={() => setOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Login
-          </Link>
+          </a>
         </div>
 
       </div>
