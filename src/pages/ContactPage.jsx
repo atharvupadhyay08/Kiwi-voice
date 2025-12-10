@@ -1,57 +1,80 @@
-import React from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import React, { useState } from "react";
 
 const ContactPage = () => {
-  const [state, handleSubmit] = useForm("xqaryyab");
+  const [status, setStatus] = useState("idle"); 
+  // idle | submitting | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xqaryyab", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <div>
-
       {/* HERO */}
       <section className="hero">
         <h1>Contact Us</h1>
-        <p>Have questions? Need support? We're here to help you anytime.</p>
+        <p>Have questions? Need support? We’re here to help anytime.</p>
       </section>
 
-      {/* CONTACT SECTION */}
+      {/* CONTACT FORM */}
       <section className="section">
         <h2>We're Here for You</h2>
         <p className="subtitle">
-          Fill out the form below and our support team will reach out within 24 hours.
+          Fill out the form and our team will reach out within 24 hours.
         </p>
 
-        {/* SUCCESS MESSAGE */}
-        {state.succeeded && (
-          <div className="card" style={{ maxWidth: "600px", margin: "auto", padding: "20px" }}>
-            <h3>Message Sent ✔</h3>
-            <p>Thank you for contacting us! We will respond shortly.</p>
-          </div>
-        )}
+        <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
+          <form onSubmit={handleSubmit} className="contact-form">
 
-        {!state.succeeded && (
-          <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <label>Full Name</label>
+            <input type="text" name="name" required />
 
-              <label>Full Name</label>
-              <input type="text" name="name" required />
+            <label>Email Address</label>
+            <input type="email" name="email" required />
 
-              <label>Email Address</label>
-              <input type="email" name="email" required />
-              <ValidationError field="email" errors={state.errors} />
+            <label>Phone Number</label>
+            <input type="text" name="phone" />
 
-              <label>Phone Number</label>
-              <input type="text" name="phone" />
+            <label>Your Message</label>
+            <textarea name="message" rows="5" required></textarea>
 
-              <label>Your Message</label>
-              <textarea name="message" rows="5" required />
-              <ValidationError field="message" errors={state.errors} />
+            <button type="submit" className="button-primary">
+              {status === "submitting" ? "Sending..." : "Send Message"}
+            </button>
+          </form>
 
-              <button type="submit" className="button-primary" disabled={state.submitting}>
-                {state.submitting ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
-        )}
+          {status === "success" && (
+            <p style={{ color: "green", marginTop: "15px", textAlign: "center" }}>
+              ✔ Message sent successfully! We’ll get back to you soon.
+            </p>
+          )}
+
+          {status === "error" && (
+            <p style={{ color: "red", marginTop: "15px", textAlign: "center" }}>
+              ❌ Something went wrong. Please try again.
+            </p>
+          )}
+        </div>
 
         {/* SUPPORT INFO */}
         <div className="section" style={{ marginTop: "40px" }}>
@@ -59,7 +82,6 @@ const ContactPage = () => {
           <p className="subtitle">Need help with the Kiwi Watch?</p>
 
           <div className="card-grid">
-
             <div className="card">
               <h3>Email Support</h3>
               <p>support@kiwibracelet.com</p>
@@ -74,11 +96,9 @@ const ContactPage = () => {
               <h3>Response Time</h3>
               <p>Within 24 hours</p>
             </div>
-
           </div>
         </div>
       </section>
-
     </div>
   );
 };

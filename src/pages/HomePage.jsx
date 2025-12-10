@@ -13,6 +13,17 @@ const HomePage = () => {
           list-style: none;
           margin: 0.4rem 0;
         }
+        .video-section {
+          width: 100%;
+          height: 70vh;
+          overflow: hidden;
+          position: relative;
+        }
+        .video-section video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       `}</style>
 
       {/* HERO SECTION */}
@@ -48,6 +59,17 @@ const HomePage = () => {
         </button>
       </section>
 
+      {/* ⭐ NEW VIDEO SECTION ⭐ */}
+      <div className="video-section">
+        <video
+          src={`${import.meta.env.BASE_URL}Hero.mp4`}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </div>
+
       {/* FEATURES SECTION (For Learn More Button) */}
       <section className="section" id="features">
         <h2>Why Kiwi?</h2>
@@ -56,7 +78,6 @@ const HomePage = () => {
         </p>
 
         <div className="card-grid">
-
           <div className="card">
             <h3>100% Voice Controlled</h3>
             <p>No screens, no apps — just natural conversation that feels effortless.</p>
@@ -86,7 +107,6 @@ const HomePage = () => {
             <h3>Built for Safety & Independence</h3>
             <p>Gives seniors autonomy while ensuring 24/7 voice-activated support.</p>
           </div>
-
         </div>
       </section>
 
@@ -124,7 +144,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* GET STARTED SECTION (For Get Started Button) */}
+      {/* GET STARTED SECTION */}
       <section className="section" id="get-started">
         <h2>Get Started With Kiwi</h2>
         <p className="subtitle">
