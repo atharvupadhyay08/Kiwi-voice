@@ -60,15 +60,57 @@ const HomePage = () => {
       </section>
 
       {/* ⭐ NEW VIDEO SECTION ⭐ */}
-      <div className="video-section">
-        <video
-          src="/Kiwi-voice/Hero.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-      </div>
+      {/* PRODUCT VIDEO SECTION */}
+<section className="section" style={{ textAlign: "center" }}>
+  <h2>See Kiwi in Action</h2>
+  <p className="subtitle">A quick look at how Kiwi makes seniors' lives easier.</p>
+
+  <div style={{ position: "relative", maxWidth: "800px", margin: "auto" }}>
+    <video
+      id="productVideo"
+      src="/Kiwi-voice/Hero.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{
+        width: "100%",
+        borderRadius: "14px",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.1)"
+      }}
+    ></video>
+
+    {/* Video Controls */}
+    <div
+      style={{
+        marginTop: "15px",
+        display: "flex",
+        gap: "15px",
+        justifyContent: "center"
+      }}
+    >
+      <button
+        className="button-primary"
+        onClick={() => {
+          const video = document.getElementById("productVideo");
+          video.paused ? video.play() : video.pause();
+        }}
+      >
+        Play / Pause
+      </button>
+
+      <button
+        className="button-secondary"
+        onClick={() => {
+          const video = document.getElementById("productVideo");
+          video.muted = !video.muted;
+        }}
+      >
+        Mute / Unmute
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* FEATURES SECTION (For Learn More Button) */}
       <section className="section" id="features">
