@@ -4,6 +4,17 @@ const HomePage = () => {
   return (
     <div>
 
+      {/* Smooth Scroll */}
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        .no-bullets li {
+          list-style: none;
+          margin: 0.4rem 0;
+        }
+      `}</style>
+
       {/* HERO SECTION */}
       <section className="hero">
         <h1>Technology That Finally Serves Seniors.</h1>
@@ -13,54 +24,71 @@ const HomePage = () => {
           no confusion.
         </p>
 
-        <button className="button-primary">Get Started</button>
-        <button className="button-secondary">Learn More</button>
+        {/* Buttons */}
+        <button
+          className="button-primary"
+          onClick={() =>
+            document
+              .getElementById("get-started")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          Get Started
+        </button>
+
+        <button
+          className="button-secondary"
+          onClick={() =>
+            document
+              .getElementById("features")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          Learn More
+        </button>
       </section>
 
-      
+      {/* FEATURES SECTION (For Learn More Button) */}
+      <section className="section" id="features">
+        <h2>Why Kiwi?</h2>
+        <p className="subtitle">
+          A breakthrough senior-first wearable with natural voice interface.
+        </p>
 
-      {/* STATS SECTION */}
-      <section className="section">
-  <h2>Why Kiwi?</h2>
-  <p className="subtitle">
-    A breakthrough senior-first wearable with natural voice interface.
-  </p>
+        <div className="card-grid">
 
-  <div className="card-grid">
+          <div className="card">
+            <h3>100% Voice Controlled</h3>
+            <p>No screens, no apps — just natural conversation that feels effortless.</p>
+          </div>
 
-    <div className="card">
-      <h3>100% Voice Controlled</h3>
-      <p>No screens, no apps — just natural conversation that feels effortless.</p>
-    </div>
+          <div className="card">
+            <h3>Smart Emergency Detection</h3>
+            <p>Automatically senses falls or abnormal vitals and alerts family instantly.</p>
+          </div>
 
-    <div className="card">
-      <h3>Smart Emergency Detection</h3>
-      <p>Automatically senses falls or abnormal vitals and alerts family instantly.</p>
-    </div>
+          <div className="card">
+            <h3>Medication & Routine Coach</h3>
+            <p>Kiwi remembers schedules and offers gentle reminders throughout the day.</p>
+          </div>
 
-    <div className="card">
-      <h3>Medication & Routine Coach</h3>
-      <p>Kiwi remembers schedules and offers gentle reminders throughout the day.</p>
-    </div>
+          <div className="card">
+            <h3>Proactive Family Dashboard</h3>
+            <p>Real-time health updates, alerts, and insights for loved ones.</p>
+          </div>
 
-    <div className="card">
-      <h3>Proactive Family Dashboard</h3>
-      <p>Real-time health updates, alerts, and insights for loved ones.</p>
-    </div>
+          <div className="card">
+            <h3>Senior-First Comfort Design</h3>
+            <p>Lightweight, stylish, and intuitive — designed specially for seniors.</p>
+          </div>
 
-    <div className="card">
-      <h3>Senior-First Comfort Design</h3>
-      <p>Lightweight, stylish, and intuitive — designed specially for seniors.</p>
-    </div>
+          <div className="card">
+            <h3>Built for Safety & Independence</h3>
+            <p>Gives seniors autonomy while ensuring 24/7 voice-activated support.</p>
+          </div>
 
-    <div className="card">
-      <h3>Built for Safety & Independence</h3>
-      <p>Gives seniors autonomy while ensuring 24/7 voice-activated support.</p>
-    </div>
-
-  </div>
-</section>
-
+        </div>
+      </section>
 
       {/* COMPARISON SECTION */}
       <section className="section">
@@ -73,9 +101,9 @@ const HomePage = () => {
 
           <div className="comp-box">
             <h3>Traditional Wearables</h3>
-            <ul>
+            <ul className="no-bullets">
               <li>❌ Complex touch screens</li>
-              <li>❌Requires smartphone pairing</li>
+              <li>❌ Requires smartphone pairing</li>
               <li>❌ Multiple menus & buttons</li>
               <li>❌ Fitness-first — not senior care</li>
               <li>❌ Looks like a medical tracker</li>
@@ -84,7 +112,7 @@ const HomePage = () => {
 
           <div className="comp-box">
             <h3>Kiwi Watch</h3>
-            <ul>
+            <ul className="no-bullets">
               <li>✔️ Pure voice interaction</li>
               <li>✔️ Works independently — no phone</li>
               <li>✔️ Senior-friendly & intuitive</li>
@@ -95,6 +123,34 @@ const HomePage = () => {
 
         </div>
       </section>
+
+      {/* GET STARTED SECTION (For Get Started Button) */}
+      <section className="section" id="get-started">
+        <h2>Get Started With Kiwi</h2>
+        <p className="subtitle">
+          Begin your journey toward safer, smarter senior independence.
+        </p>
+
+        <div className="card-grid">
+
+          <div className="card">
+            <h3>Create Your Kiwi Account</h3>
+            <p>Set up your profile in under a minute and personalize your preferences.</p>
+          </div>
+
+          <div className="card">
+            <h3>Choose Your Voice</h3>
+            <p>Select from soothing, natural-sounding voices specially made for seniors.</p>
+          </div>
+
+          <div className="card">
+            <h3>Start Talking</h3>
+            <p>Ask Kiwi anything — reminders, health checks, assistance, or safety alerts.</p>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 };
