@@ -1,6 +1,7 @@
 import React from "react";
-import HeroVideo from "../components/HeroVideo.jsx";
-d
+import HeroVideo from "../components/HeroVideo";
+
+
 
 const HomePage = () => {
   return (

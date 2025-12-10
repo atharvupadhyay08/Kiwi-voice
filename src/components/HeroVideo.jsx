@@ -1,54 +1,59 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
-export default function HeroVideo() {
+const HeroVideo = () => {
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   const togglePlay = () => {
-    if (!videoRef.current) return;
-
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
+    const video = videoRef.current;
+    video.paused ? video.play() : video.pause();
   };
 
   const toggleMute = () => {
-    if (!videoRef.current) return;
-
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
+    const video = videoRef.current;
+    video.muted = !video.muted;
+    setMuted(video.muted);
   };
 
   return (
-    <div className="relative w-full">
+    <div style={{ position: "relative", maxWidth: "800px", margin: "auto" }}>
       <video
         ref={videoRef}
         src={`${import.meta.env.BASE_URL}Hero.mp4`}
-        className="w-full rounded-lg"
-        muted={isMuted}
+        autoPlay
+        loop
+        muted={muted}
+        playsInline
         onClick={togglePlay}
-      />
+        style={{
+          width: "100%",
+          borderRadius: "14px",
+          cursor: "pointer",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+        }}
+      ></video>
 
-      {/* Mute / Unmute Button */}
+      {/* Mute Button */}
       <button
         onClick={toggleMute}
-        className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-2 rounded-lg"
+        style={{
+          position: "absolute",
+          bottom: "15px",
+          right: "15px",
+          padding: "10px 14px",
+          borderRadius: "50%",
+          background: "rgba(0,0,0,0.6)",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+          fontSize: "14px",
+          backdropFilter: "blur(5px)",
+        }}
       >
-        {isMuted ? "Unmute" : "Mute"}
-      </button>
-
-      {/* Play / Pause Button */}
-      <button
-        onClick={togglePlay}
-        className="absolute bottom-4 left-4 bg-black/60 text-white px-3 py-2 rounded-lg"
-      >
-        {isPlaying ? "Pause" : "Play"}
+        {muted ? "🔇" : "🔊"}
       </button>
     </div>
   );
-}
+};
+
+export default HeroVideo;
