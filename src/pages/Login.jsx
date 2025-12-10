@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
-  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     if (!email || !password) return alert("Enter email and password");
 
-    login({ email });
-    navigate('/dashboard');
+    // Only allow the specific credentials
+    if (email === "kiwivoiceguys@gmail.com" && password === "kiwi@123") {
+      window.location.href = "http://app.kiwivoiceassistant.com";
+    } else {
+      alert("Invalid email or password");
+    }
   };
 
   return (
