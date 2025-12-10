@@ -16,27 +16,47 @@ const ContactPage = () => {
       <section className="section">
         <h2>We're Here for You</h2>
         <p className="subtitle">
-          Fill out the form below and our support team will get back to you within 24 hours.
+          Fill out the form below and our support team will reach out within 24 hours.
         </p>
 
         {/* Contact Form Card */}
         <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
           <form
-            action="https://formspree.io/f/YOUR_FORM_ID"  
+            action="https://formspree.io/f/xqaryyab"
             method="POST"
             className="contact-form"
           >
+
             <label>Full Name</label>
-            <input type="text" name="name" placeholder="John Doe" required />
+            <input
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              required
+            />
 
             <label>Email Address</label>
-            <input type="email" name="email" placeholder="yourname@example.com" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="yourname@example.com"
+              required
+            />
 
             <label>Phone Number</label>
-            <input type="text" name="phone" placeholder="+1 800 123 4567" />
+            <input
+              type="text"
+              name="phone"
+              placeholder="+1 800 123 4567"
+            />
 
             <label>Your Message</label>
-            <textarea name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="How can we assist you?"
+              required
+            ></textarea>
 
             <button type="submit" className="button-primary">
               Send Message
@@ -75,3 +95,6 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
+//pass :7#BpfQB@zaCD6Ca->Formspree
+
