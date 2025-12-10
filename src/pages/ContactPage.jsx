@@ -8,7 +8,7 @@ const ContactPage = () => {
       <section className="hero">
         <h1>Contact Us</h1>
         <p>
-          Have questions? Need support? We’re always here to help.
+          Have questions? Need support? We’re here to help you anytime.
         </p>
       </section>
 
@@ -16,24 +16,41 @@ const ContactPage = () => {
       <section className="section">
         <h2>We're Here for You</h2>
         <p className="subtitle">
-          Fill out the form below, and our team will reach out within 24 hours.
+          Fill out the form below and our support team will get back to you within 24 hours.
         </p>
 
+        {/* Contact Form Card */}
         <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
-          <form>
-            <input type="text" placeholder="Full Name" required />
-            <input type="email" placeholder="Email Address" required />
-            <input type="text" placeholder="Phone Number" required />
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Submit</button>
+          <form
+            action="https://formspree.io/f/YOUR_FORM_ID"  
+            method="POST"
+            className="contact-form"
+          >
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Doe" required />
+
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="yourname@example.com" required />
+
+            <label>Phone Number</label>
+            <input type="text" name="phone" placeholder="+1 800 123 4567" />
+
+            <label>Your Message</label>
+            <textarea name="message" rows="5" placeholder="How can we help you?" required></textarea>
+
+            <button type="submit" className="button-primary">
+              Send Message
+            </button>
           </form>
         </div>
 
+        {/* SUPPORT INFO */}
         <div className="section" style={{ marginTop: "40px" }}>
           <h2>Support</h2>
-          <p className="subtitle">Need assistance with the Kiwi Watch?</p>
+          <p className="subtitle">Need help with the Kiwi Watch?</p>
 
           <div className="card-grid">
+
             <div className="card">
               <h3>Email Support</h3>
               <p>support@kiwibracelet.com</p>
@@ -46,12 +63,13 @@ const ContactPage = () => {
 
             <div className="card">
               <h3>Response Time</h3>
-              <p>Usually within 24 hours.</p>
+              <p>Within 24 hours</p>
             </div>
+
           </div>
         </div>
-
       </section>
+
     </div>
   );
 };
