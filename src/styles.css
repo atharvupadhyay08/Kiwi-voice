@@ -327,6 +327,19 @@ form button {
   border-radius: 8px;
   cursor: pointer;
 }
+.why-kiwi-data {
+  text-align: center;
+}
+
+.why-kiwi-data h2 {
+  margin-bottom: 8px;
+}
+
+.why-kiwi-data p {
+  max-width: 640px;
+  margin: 0 auto 24px;
+  color: #b0b3b8;
+}
 
 /* -------------------------------------------------------
    FOOTER
