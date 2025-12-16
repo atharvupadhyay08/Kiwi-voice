@@ -158,4 +158,9 @@ const WhyKiwiPage = () => {
 
 
 
+      
+    </div>
+  );
+};
+
 export default WhyKiwiPage;
