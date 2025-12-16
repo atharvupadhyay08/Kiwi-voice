@@ -41,26 +41,52 @@ const WhyKiwiPage = () => {
       </section>
 
       {/* STATS SECTION */}
-      <section className="section">
-        <h2>The Numbers Don’t Lie</h2>
+<section className="section">
+  <h2>The Numbers Don’t Lie</h2>
+  <p className="subtitle">
+    Real-world clinical validation from frontline healthcare professionals.
+  </p>
 
-        <div className="card-grid">
-          <div className="stat-card">
-            <h1>67%</h1>
-            <p>Older adults avoid technology due to complexity.</p>
-          </div>
+  <div className="card-grid">
+    <div className="stat-card">
+      <h1>95.7%</h1>
+      <p>Nurses save time every shift<br />(89/93 respondents)</p>
+    </div>
 
-          <div className="stat-card">
-            <h1>98%</h1>
-            <p>Fall alerts in traditional devices are false alarms.</p>
-          </div>
+    <div className="stat-card">
+      <h1>82.8%</h1>
+      <p>Would recommend Kiwi<br />(rated 4–5/5)</p>
+    </div>
 
-          <div className="stat-card">
-            <h1>80%</h1>
-            <p>Seniors live with chronic conditions needing monitoring.</p>
-          </div>
-        </div>
-      </section>
+    <div className="stat-card">
+      <h1>67.7%</h1>
+      <p>Report high clinical trust<br />(rated 4–5/5)</p>
+    </div>
+
+    <div className="stat-card">
+      <h1>80.6%</h1>
+      <p>Trained in under 30 minutes</p>
+    </div>
+
+    <div className="stat-card">
+      <h1>71%</h1>
+      <p>Have purchasing influence in their facility</p>
+    </div>
+
+    <div className="stat-card">
+      <h1>64.5%</h1>
+      <p>Save 1–5 minutes per shift on vitals</p>
+    </div>
+
+    <div className="stat-card">
+      <h1>62.4%</h1>
+      <p>Likely to use Kiwi daily</p>
+    </div>
+  </div>
+
+  <p className="micro-note">Based on feedback from 93 clinical respondents</p>
+</section>
+
 
       {/* THE KIWI BREAKTHROUGH */}
       <section className="section">
@@ -86,6 +112,51 @@ const WhyKiwiPage = () => {
           </div>
         </div>
       </section>
+
+{/* INSIGHTS SECTION */}
+<section className="section">
+  <h2>What These Numbers Mean</h2>
+
+  <div className="card-grid">
+    <div className="card">
+      <h3>Clinical Buy-In & Adoption</h3>
+      <p>
+        60% of clinicians are likely or very likely to recommend Kiwi to their unit,
+        validating strong product–market fit and readiness for facility-wide rollout.
+      </p>
+      <p>
+        57% believe Kiwi significantly improves patient triage and management,
+        directly impacting patient safety and care efficiency.
+      </p>
+    </div>
+
+    <div className="card">
+      <h3>Immediate ROI for Care Teams</h3>
+      <p>
+        69% of users save 1–5 minutes per shift on vitals collection,
+        freeing time for direct patient care.
+      </p>
+      <p>
+        62% rate Kiwi’s ease of use as 4 or 5, ensuring rapid adoption
+        with minimal training overhead.
+      </p>
+    </div>
+
+    <div className="card">
+      <h3>Enterprise-Ready Infrastructure</h3>
+      <p>
+        62% of respondents rate EHR integration as important or extremely important,
+        aligning Kiwi with enterprise deployment requirements.
+      </p>
+      <p>
+        Kiwi is built to scale across hospitals, assisted living facilities,
+        and post-discharge care environments.
+      </p>
+    </div>
+  </div>
+</section>
+
+
 
       {/* COMPARISON */}
       <section className="section">
