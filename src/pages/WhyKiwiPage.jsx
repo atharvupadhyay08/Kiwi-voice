@@ -158,37 +158,4 @@ const WhyKiwiPage = () => {
 
 
 
-      {/* COMPARISON */}
-      <section className="section">
-        <h2>A Complete Redesign of Senior Technology</h2>
-
-        <div className="comparison">
-          <div className="comp-box">
-            <h3>Traditional Wearables</h3>
-            <ul>
-           <li>❌ Complex interface</li>
-            <li>❌ Smartphone required</li>
-           <li>❌ Stigmatizing design</li>
-           <li>❌ Fitness-focused features</li>
-           </ul>
-
-          </div>
-
-          <div className="comp-box">
-            <h3>The Kiwi Watch</h3>
-            <ul>
-              <li>✔️ Pure voice interaction</li>
-              <li>✔️ Works independently</li>
-              <li>✔️ Elegant & dignity-preserving</li>
-              <li>✔️ Built for safety & care</li>
-            </ul>
-
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
-};
-
 export default WhyKiwiPage;
