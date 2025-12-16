@@ -1,4 +1,5 @@
 import React from "react";
+import RecommendationChart from "../components/RecommendationChart";
 
 const WhyKiwiPage = () => {
   return (
