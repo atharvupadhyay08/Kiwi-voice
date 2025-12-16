@@ -157,23 +157,17 @@ const WhyKiwiPage = () => {
   </div>
 </section>
 {/* TRUST / DATA SECTION */}
-<section className="why-kiwi-data section">
+<section className="why-kiwi-data">
   <h2>Trusted by Care Teams</h2>
   <p>
     Real feedback from staff evaluating Kiwi’s impact on daily safety and care.
   </p>
 
-  <div
-    style={{
-      width: "100%",
-      maxWidth: "720px",
-      height: "360px",
-      margin: "40px auto",
-    }}
-  >
+  <div className="chart-container">
     <RecommendationChart />
   </div>
 </section>
+
 
       
     </div>

@@ -34,16 +34,16 @@ const spec = {
         ],
         color: { value: "#1A73E8" }
       }
-    },
-    {
-      mark: { type: "text", dy: -5 },
-      encoding: {
-        x: { field: "Recommendation_Rating", type: "nominal" },
-        y: { field: "Count", type: "quantitative" },
-        text: { field: "Count", type: "quantitative" },
-        color: { value: "#ffffff" }
-      }
-    }
+            },
+            {
+                  mark: { type: "text", dy: -5 },
+                  encoding: {
+                        x: { field: "Recommendation_Rating", type: "nominal" },
+                        y: { field: "Count", type: "quantitative" },
+                        text: { field: "Count", type: "quantitative" },
+                        color: { value: "#111" }
+                  }
+            }
   ]
 };
 
