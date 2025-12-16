@@ -84,7 +84,7 @@ const WhyKiwiPage = () => {
     </div>
   </div>
 
-  <p className="micro-note">Based on feedback from 93 clinical respondents</p>
+  <p className="micro-note">Based on feedback from 99+ clinical respondents</p>
 </section>
 
 
@@ -155,7 +155,15 @@ const WhyKiwiPage = () => {
     </div>
   </div>
 </section>
+{/* TRUST / DATA SECTION */}
+      <section className="why-kiwi-data">
+        <h2>Trusted by Care Teams</h2>
+        <p>
+          Real feedback from staff evaluating Kiwi’s impact on daily safety and care.
+        </p>
 
+        <RecommendationChart />
+      </section>
 
 
       
