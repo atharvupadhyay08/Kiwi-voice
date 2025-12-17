@@ -26,7 +26,7 @@ function AppWrapper() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/why-kiwi" element={<WhyKiwiPage />} />
+        {/*<Route path="/why-kiwi" element={<WhyKiwiPage />} />*/}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
