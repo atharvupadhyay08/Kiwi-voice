@@ -27,15 +27,26 @@ a, button, .card, .navbar {
 }
 
 /* -------------------------------------------------------
-   NAVBAR RESPONSIVE + CLEAN
+   NAVBAR RESPONSIVE + CLEAN (STICKY / FIXED)
 ---------------------------------------------------------*/
+
+/* IMPORTANT: Prevent content hiding under fixed navbar */
+body {
+  padding-top: 72px;
+}
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+
   background: #ffffffcc;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,0,0,0.05);
   padding: 12px 0;
-  z-index: 999;
+
+  z-index: 1000;
 }
 
 .nav-container {
@@ -121,13 +132,15 @@ a, button, .card, .navbar {
 
   .nav-links {
     position: absolute;
-    top: 65px;
+    top: 72px;
     right: 0;
     width: 100%;
     background: white;
+
     flex-direction: column;
     padding: 25px 0;
     gap: 20px;
+
     display: none;
     border-bottom: 1px solid #eee;
   }
@@ -146,6 +159,7 @@ a, button, .card, .navbar {
     font-size: 18px;
   }
 }
+
 
 /* -------------------------------------------------------
    HERO
@@ -367,13 +381,34 @@ form button {
   font-size: 17px;
 }
 
+/* -------------------------------------------------------
+   WHY KIWI – CHART POLISH
+---------------------------------------------------------*/
+
 .chart-container {
   width: 100%;
   max-width: 720px;
-  height: 360px;   /* REQUIRED for Vega */
+  height: 380px;
   margin: 0 auto;
 }
 
+.chart-footnote {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+}
+
+.micro-note {
+  text-align: center;
+  margin: 24px auto 0;
+  font-size: 14px;
+  color: #777;
+  max-width: 100%;
+}
+.section .micro-note {
+  text-align: center;
+}
 /* -------------------------------------------------------
    FOOTER
 ---------------------------------------------------------*/

@@ -8,55 +8,80 @@ export default function RecommendationChart() {
     const spec = {
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
       background: "transparent",
-      title: "Staff Likelihood to Recommend the Device",
+
+      title: {
+        text: "Staff Likelihood to Recommend Kiwi",
+        fontSize: 18,
+        fontWeight: 600,
+        color: "#111",
+        anchor: "middle"
+      },
 
       data: {
         values: [
-          { Recommendation_Rating: "1", Count: 1 },
-          { Recommendation_Rating: "2", Count: 11 },
-          { Recommendation_Rating: "3", Count: 28 },
-          { Recommendation_Rating: "4", Count: 39 },
-          { Recommendation_Rating: "5", Count: 21 }
+          { rating: "1", count: 1 },
+          { rating: "2", count: 11 },
+          { rating: "3", count: 28 },
+          { rating: "4", count: 39 },
+          { rating: "5", count: 21 }
         ]
       },
 
       layer: [
         {
-          mark: { type: "bar", cornerRadiusTopLeft: 6, cornerRadiusTopRight: 6 },
+          mark: {
+            type: "bar",
+            cornerRadiusTopLeft: 10,
+            cornerRadiusTopRight: 10
+          },
           encoding: {
             x: {
-              field: "Recommendation_Rating",
-              type: "nominal",
-              title: "Rating Score (1: Not likely, 5: Very likely)"
+              field: "rating",
+              type: "ordinal",
+              title: "Rating (1 = Not likely, 5 = Very likely)",
+              axis: {
+                labelFontSize: 13,
+                titleFontSize: 13
+              }
             },
             y: {
-              field: "Count",
+              field: "count",
               type: "quantitative",
-              title: "Number of Respondents"
+              title: "Number of Respondents",
+              axis: {
+                labelFontSize: 13,
+                titleFontSize: 13,
+                grid: true,
+                gridColor: "#eaeaea"
+              }
+            },
+            color: {
+              value: "#4CAF50"
             },
             tooltip: [
-              { field: "Recommendation_Rating", type: "nominal", title: "Rating" },
-              { field: "Count", type: "quantitative", title: "Responses" }
-            ],
-            color: { value: "#4CAF50" }
+              { field: "rating", title: "Rating" },
+              { field: "count", title: "Responses" }
+            ]
           }
         },
         {
-          mark: { type: "text", dy: -8 },
+          mark: {
+            type: "text",
+            dy: -8,
+            fontSize: 13,
+            fontWeight: 600
+          },
           encoding: {
-            x: { field: "Recommendation_Rating", type: "nominal" },
-            y: { field: "Count", type: "quantitative" },
-            text: { field: "Count", type: "quantitative" },
+            x: { field: "rating", type: "ordinal" },
+            y: { field: "count", type: "quantitative" },
+            text: { field: "count", type: "quantitative" },
             color: { value: "#111" }
           }
         }
       ]
     };
 
-    embed(chartRef.current, spec, {
-      actions: false
-    });
-
+    embed(chartRef.current, spec, { actions: false });
   }, []);
 
   return <div ref={chartRef} style={{ width: "100%", height: "100%" }} />;
