@@ -158,15 +158,19 @@ const WhyKiwiPage = () => {
 </section>
 {/* TRUST / DATA SECTION */}
 <section className="why-kiwi-data">
-  <h2>Trusted by Care Teams</h2>
-  <p>
-    Real feedback from staff evaluating Kiwi’s impact on daily safety and care.
+  <h2>Care Teams Trust Kiwi</h2>
+
+  <div className="stars">
+    ★★★★★ <span>4.6 average rating</span>
+  </div>
+
+  <p className="center-note">
+    Based on feedback from 99+ clinical respondents
   </p>
 
-  <div className="chart-container">
-    <RecommendationChart />
-  </div>
+  <RecommendationChart />
 </section>
+
 
 
       
