@@ -2,9 +2,9 @@ import React from "react";
 
 export default function RecommendationChart() {
   const data = [
-    { rating: "5", value: 39 },
-    { rating: "4", value: 28 },
-    { rating: "3", value: 11 },
+    { rating: "5", value: 21 },
+    { rating: "4", value: 39 },
+    { rating: "3", value: 28 },
     { rating: "2", value: 11 },
     { rating: "1", value: 1 },
   ];

@@ -161,7 +161,7 @@ const WhyKiwiPage = () => {
   <h2>Care Teams Trust Kiwi</h2>
 
   <div className="stars">
-    ★★★★★ <span>4.6 average rating</span>
+    ★★★★★ <span>3.7 average rating</span>
   </div>
 
   <p className="center-note">
