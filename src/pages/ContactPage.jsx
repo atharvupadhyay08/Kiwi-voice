@@ -84,12 +84,12 @@ const ContactPage = () => {
           <div className="card-grid">
             <div className="card">
               <h3>Email Support</h3>
-              <p>support@kiwibracelet.com</p>
+              <p>hello@kiwibracelet.com</p>
             </div>
 
             <div className="card">
               <h3>Phone Support</h3>
-              <p>+1 (800) 123-4567</p>
+              <p>+1 (857) 999-7279</p>
             </div>
 
             <div className="card">
