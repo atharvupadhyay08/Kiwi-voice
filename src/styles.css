@@ -20,7 +20,7 @@ body {
   background: var(--bg-light);
   color: #1c1c1c;
   line-height: 1.6;
-  padding-top: 72px; /* prevents navbar overlap */
+  padding-top: 72px;
 }
 
 a,
@@ -54,7 +54,6 @@ button,
   justify-content: space-between;
 }
 
-/* LOGO */
 .nav-logo {
   font-size: 28px;
   font-weight: 800;
@@ -65,11 +64,6 @@ button,
   gap: 6px;
 }
 
-.nav-logo:hover {
-  opacity: 0.8;
-}
-
-/* NAV LINKS */
 .nav-links {
   display: flex;
   align-items: center;
@@ -87,7 +81,6 @@ button,
   color: var(--primary);
 }
 
-/* BUTTON */
 .nav-btn {
   padding: 10px 20px;
   background: var(--primary);
@@ -96,11 +89,6 @@ button,
   font-weight: 600;
 }
 
-.nav-btn:hover {
-  opacity: 0.9;
-}
-
-/* HAMBURGER */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -115,7 +103,6 @@ button,
   border-radius: 4px;
 }
 
-/* MOBILE NAV */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -137,43 +124,10 @@ button,
   .nav-links.show {
     display: flex;
   }
-
-  .nav-links a {
-    font-size: 19px;
-  }
 }
 
 /* -------------------------------------------------------
-   HERO (UNIFIED FOR ALL PAGES)
----------------------------------------------------------*/
-.hero {
-  text-align: center;
-  padding: 110px 20px 90px;
-  background: linear-gradient(to bottom, #ffffff, #eef6f0);
-}
-
-.hero h1 {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  color: #111;
-}
-
-.hero p {
-  max-width: 720px;
-  margin: 0 auto;
-  font-size: 20px;
-  color: #555;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 34px;
-  }
-}
-
-/* -------------------------------------------------------
-   SECTIONS (GLOBAL SPACING)
+   GLOBAL SECTIONS & CARDS (HOME SAFE)
 ---------------------------------------------------------*/
 .section {
   padding: 80px 20px;
@@ -181,53 +135,6 @@ button,
   margin: auto;
 }
 
-.section h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.section p.subtitle {
-  font-size: 18px;
-  text-align: center;
-  color: #666;
-  margin-bottom: 50px;
-}
-
-/* -------------------------------------------------------
-   BUTTONS
----------------------------------------------------------*/
-.button-primary,
-.button-secondary {
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 17px;
-  cursor: pointer;
-  border: none;
-}
-
-.button-primary {
-  background: var(--primary);
-  color: white;
-}
-
-.button-primary:hover {
-  opacity: 0.85;
-}
-
-.button-secondary {
-  background: #e8e8e8;
-  color: #222;
-}
-
-.button-secondary:hover {
-  background: #dcdcdc;
-}
-
-/* -------------------------------------------------------
-   CARDS (GLOBAL)
----------------------------------------------------------*/
 .card {
   background: white;
   padding: 25px;
@@ -238,70 +145,35 @@ button,
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
 /* -------------------------------------------------------
-   WHY KIWI – SPLIT ENTRY
+   WHY KIWI PAGE (SCOPED ONLY)
 ---------------------------------------------------------*/
-.split-entry {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 5rem auto;
-  padding: 0 20px;
+.why-kiwi-page .hero {
+  text-align: center;
+  padding: 110px 20px 90px;
+  background: linear-gradient(to bottom, #ffffff, #eef6f0);
 }
 
-.entry-card {
-  padding: 3rem 2.5rem;
-  border-radius: 20px;
-  background: #ffffff;
-  border: 1px solid #eee;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.why-kiwi-page .hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #111;
 }
 
-.entry-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-}
-
-.entry-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
-}
-
-.entry-card p {
+.why-kiwi-page .hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 20px;
   color: #555;
 }
 
-.entry-cta {
-  display: inline-block;
-  margin-top: 24px;
-  font-weight: 600;
-  color: var(--primary);
-}
-
 @media (max-width: 768px) {
-  .split-entry {
-    grid-template-columns: 1fr;
+  .why-kiwi-page .hero h1 {
+    font-size: 34px;
   }
 }
 
-/* -------------------------------------------------------
-   FOOTER
----------------------------------------------------------*/
-.footer {
-  padding: 40px;
-  text-align: center;
-  background: #fff;
-  border-top: 1px solid #eee;
-  margin-top: 80px;
-  color: #666;
-}
-
-.footer a {
-  color: var(--primary);
-  text-decoration: none;
-}
+.why-kiwi-page .split-ent
