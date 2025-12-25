@@ -1,6 +1,4 @@
-/* -------------------------------------------------------
-   GLOBAL RESET + THEME
----------------------------------------------------------*/
+/* ======================================================= GLOBAL RESET + THEME ======================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +9,10 @@
 :root {
   --primary: #4CAF50;
   --dark: #111;
-  --light: #fff;
+  --light: #ffffff;
   --gray: #6c757d;
   --bg-light: #f8f9fb;
+  --card-bg: #ffffff;
 }
 
 body {
@@ -25,155 +24,654 @@ body {
 
 a,
 button,
-.card,
-.navbar {
-  transition: all 0.25s ease;
+.card {
+  transition: all 0.3s ease;
 }
 
-/* -------------------------------------------------------
-   NAVBAR (GLOBAL)
----------------------------------------------------------*/
+/* ======================================================= NAVBAR ======================================================= */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   background: #ffffffcc;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1000;
 }
 
 .nav-container {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 14px 24px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-logo {
   font-size: 28px;
   font-weight: 800;
   text-decoration: none;
-  color: #111;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--dark);
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
   gap: 30px;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #222;
   font-size: 17px;
   font-weight: 500;
+  color: #222;
 }
 
 .nav-links a:hover {
   color: var(--primary);
 }
 
-.nav-btn {
-  padding: 10px 20px;
-  background: var(--primary);
-  color: white !important;
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 26px;
-  height: 3px;
-  background: #111;
-  border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 72px;
-    right: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    padding: 25px 0;
-    gap: 20px;
-    display: none;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-}
-
-/* -------------------------------------------------------
-   GLOBAL SECTIONS & CARDS (HOME SAFE)
----------------------------------------------------------*/
-.section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-/* -------------------------------------------------------
-   WHY KIWI PAGE (SCOPED ONLY)
----------------------------------------------------------*/
-.why-kiwi-page .hero {
+/* ======================================================= HERO (HOME / ABOUT / CONTACT) ======================================================= */
+.hero {
   text-align: center;
-  padding: 110px 20px 90px;
+  padding: 140px 20px 110px;
   background: linear-gradient(to bottom, #ffffff, #eef6f0);
 }
 
-.why-kiwi-page .hero h1 {
+.hero h1 {
   font-size: 48px;
   font-weight: 800;
-  margin-bottom: 16px;
-  color: #111;
+  margin-bottom: 22px;
+  letter-spacing: -0.6px;
 }
 
-.why-kiwi-page .hero p {
+.hero p {
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   font-size: 20px;
   color: #555;
+  opacity: 0.9;
 }
 
+/* ======================================================= BUTTONS ======================================================= */
+.button-primary {
+  background: var(--primary);
+  color: var(--light);
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+}
+
+.button-secondary {
+  background: #eaeaea;
+  color: #222;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.button-secondary:hover {
+  background: #dedede;
+}
+
+/* ======================================================= SECTIONS ======================================================= */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.4px;
+}
+
+.subtitle {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  font-size: 18px;
+  color: #555;
+  opacity: 0.85;
+}
+
+/* ======================================================= FEATURE CARDS (HOME) ======================================================= */
+.features {
+  padding: 100px 8%;
+  background: #fafafa;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 36px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card .icon {
+  font-size: 34px;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ------------------------------------ COMPARISON SECTION ------------------------------------ */
+.comparison-section {
+  padding: 120px 8%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.comparison-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.comparison-subtitle {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  font-size: 16px;
+}
+
+/* GRID */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CARD BASE */
+.comparison-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+/* HEADINGS */
+.comparison-card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* LIST */
+.comparison-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comparison-card li {
+  font-size: 16px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* VARIANTS */
+.comparison-card.traditional {
+  border: 1px solid #df1a1a;
+}
+
+.comparison-card.kiwi {
+  border: 2px solid #4CAF50;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
-  .why-kiwi-page .hero h1 {
-    font-size: 34px;
+  .comparison-title {
+    font-size: 28px;
   }
 }
 
-.why-kiwi-page .split-ent
+.muted {
+  background: #fafafa;
+  color: #777;
+}
+
+.highlight {
+  background: linear-gradient(180deg, #ffffff, #f1fbf3);
+  font-weight: 600;
+  color: #1b5e20;
+}
+
+.cta {
+  padding: 120px 8%;
+  background: #111;
+  color: #fff;
+}
+
+.cta-card {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.cta-card button {
+  margin-top: 30px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  border: none;
+  background: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ============================== Contact Page – Modern & Clean ============================== */
+.contact-page-wrapper {
+  background: #f7f7f7;
+  padding: 80px 8% 120px;
+  font-family: 'Inter', sans-serif;
+  color: #222;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-header h1 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.contact-header p {
+  font-size: 16px;
+  color: #555;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* FORM CARD */
+.contact-form-card {
+  background: #fff;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 36px 40px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* FORM GRID */
+.contact-form {
+  display: grid;
+  gap: 24px;
+}
+
+/* FORM LABELS & INPUTS */
+.contact-form label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.2s ease;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.25);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* BUTTON */
+.contact-form button {
+  background: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #43a047;
+  transform: translateY(-2px);
+}
+
+/* SUCCESS / ERROR MESSAGES */
+.form-message {
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-top: 8px;
+  display: none;
+}
+
+.form-message.success {
+  background: #e6f9ed;
+  color: #2d7a3e;
+  display: block;
+}
+
+.form-message.error {
+  background: #fdecea;
+  color: #a33a3a;
+  display: block;
+}
+
+/* MOBILE ADJUST */
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 32px;
+  }
+}
+
+/* ======================================================= ABOUT PAGE ======================================================= */
+.about-page {
+  max-width: 900px;
+  margin: auto;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.about-page p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* =============================== WHY KIWI PAGE ================================ */
+.whykiwi-page {
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+/* ---------- HERO ---------- */
+.hero-soft {
+  padding: 120px 8% 80px;
+  text-align: center;
+}
+
+.hero-soft h1 {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.hero-subtext {
+  font-size: 18px;
+  color: #666;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- ENTRY SECTION ---------- */
+.split-entry {
+  padding: 80px 8% 120px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- CARD ---------- */
+.entry-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+}
+
+.entry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- CARD CONTENT ---------- */
+.entry-card h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.entry-card p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ---------- CTA ---------- */
+.entry-cta {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4CAF50;
+  transition: transform 0.3s ease;
+}
+
+.entry-card:hover .entry-cta {
+  transform: translateX(6px);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .hero-soft {
+    padding: 90px 6% 60px;
+  }
+
+  .hero-soft h1 {
+    font-size: 32px;
+  }
+
+  .hero-subtext {
+    font-size: 16px;
+  }
+
+  .split-entry {
+    padding: 60px 6% 100px;
+  }
+}
+
+/* =============================== SENIORS PAGE ================================ */
+.seniors-page {
+  background: #fff;
+}
+
+/* HERO */
+.seniors-hero {
+  padding: 90px 8% 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.seniors-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.seniors-hero p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+}
+
+/* SECTIONS */
+.content-section {
+  padding: 70px 8%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.content-section.alt {
+  background: #f8f9fb;
+  border-radius: 24px;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 35px;
+}
+
+/* GRID */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  font-size: 1rem;
+}
+
+.feature-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+/* CTA */
+.cta-section {
+  padding: 80px 8%;
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-primary {
+  background: #4CAF50;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-secondary {
+  background: transparent;
+  color: #4CAF50;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: 2px solid #4CAF50;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.facilities-hero{
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seniors-hero h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ======================================================= FOOTER ======================================================= */
+.footer {
+  padding: 40px;
+  background: var(--light);
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: #666;
+  margin-top: 80px;
+}
+
+/* ======================================================= RESPONSIVE ======================================================= */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table {
+    grid-template-columns: 1fr;
+  }
+}

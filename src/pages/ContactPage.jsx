@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ContactPage = () => {
-  const [status, setStatus] = useState("idle"); 
+  const [status, setStatus] = useState("idle");
   // idle | submitting | success | error
 
   async function handleSubmit(e) {
@@ -33,30 +33,40 @@ const ContactPage = () => {
       {/* HERO */}
       <section className="hero">
         <h1>Contact Us</h1>
-        <p>Have questions? Need support? We’re here to help anytime.</p>
+        <p>
+          Have questions, need support, or want to learn more about Kiwi?
+          We’re always here to help.
+        </p>
       </section>
 
       {/* CONTACT FORM */}
       <section className="section">
-        <h2>We're Here for You</h2>
+        <h2>We’re Here for You</h2>
         <p className="subtitle">
-          Fill out the form and our team will reach out within 24 hours.
+          Fill out the form below and our team will reach out within 24 hours.
         </p>
 
-        <div className="card" style={{ maxWidth: "600px", margin: "auto" }}>
+        <div className="card contact-card">
           <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" required />
+            </div>
 
-            <label>Full Name</label>
-            <input type="text" name="name" required />
+            <div className="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" required />
+            </div>
 
-            <label>Email Address</label>
-            <input type="email" name="email" required />
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input type="text" name="phone" />
+            </div>
 
-            <label>Phone Number</label>
-            <input type="text" name="phone" />
-
-            <label>Your Message</label>
-            <textarea name="message" rows="5" required></textarea>
+            <div className="form-group full-width">
+              <label>Your Message</label>
+              <textarea name="message" rows="5" required></textarea>
+            </div>
 
             <button type="submit" className="button-primary">
               {status === "submitting" ? "Sending..." : "Send Message"}
@@ -64,38 +74,38 @@ const ContactPage = () => {
           </form>
 
           {status === "success" && (
-            <p style={{ color: "green", marginTop: "15px", textAlign: "center" }}>
-              ✔ Message sent successfully! We’ll get back to you soon.
+            <p className="form-success">
+              ✔ Message sent successfully. We’ll get back to you shortly.
             </p>
           )}
 
           {status === "error" && (
-            <p style={{ color: "red", marginTop: "15px", textAlign: "center" }}>
+            <p className="form-error">
               ❌ Something went wrong. Please try again.
             </p>
           )}
         </div>
+      </section>
 
-        {/* SUPPORT INFO */}
-        <div className="section" style={{ marginTop: "40px" }}>
-          <h2>Support</h2>
-          <p className="subtitle">Need help with the Kiwi Watch?</p>
+      {/* SUPPORT INFO */}
+      <section className="section">
+        <h2>Support</h2>
+        <p className="subtitle">Need help with the Kiwi Watch?</p>
 
-          <div className="card-grid">
-            <div className="card">
-              <h3>Email Support</h3>
-              <p>hello@kiwibracelet.com</p>
-            </div>
+        <div className="card-grid">
+          <div className="card">
+            <h3>Email Support</h3>
+            <p>hello@kiwibracelet.com</p>
+          </div>
 
-            <div className="card">
-              <h3>Phone Support</h3>
-              <p>+1 (857) 999-7279</p>
-            </div>
+          <div className="card">
+            <h3>Phone Support</h3>
+            <p>+1 (857) 999-7279</p>
+          </div>
 
-            <div className="card">
-              <h3>Response Time</h3>
-              <p>Within 24 hours</p>
-            </div>
+          <div className="card">
+            <h3>Response Time</h3>
+            <p>Within 24 hours</p>
           </div>
         </div>
       </section>
