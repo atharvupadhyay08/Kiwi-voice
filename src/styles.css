@@ -29,11 +29,15 @@ button,
 }
 
 /* ======================================================= NAVBAR ======================================================= */
+/* ==========================
+   NAVBAR – CLEAN & RESPONSIVE
+========================== */
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #ffffffcc;
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1000;
@@ -48,6 +52,7 @@ button,
   align-items: center;
 }
 
+/* LOGO */
 .nav-logo {
   font-size: 28px;
   font-weight: 800;
@@ -55,6 +60,7 @@ button,
   color: var(--dark);
 }
 
+/* LINKS */
 .nav-links {
   display: flex;
   gap: 30px;
@@ -65,10 +71,29 @@ button,
   font-size: 17px;
   font-weight: 500;
   color: #222;
+  transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
   color: var(--primary);
+}
+
+/* ==========================
+   MOBILE FIX
+========================== */
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-logo {
+    font-size: 24px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+  }
 }
 
 /* ======================================================= HERO (HOME / ABOUT / CONTACT) ======================================================= */
