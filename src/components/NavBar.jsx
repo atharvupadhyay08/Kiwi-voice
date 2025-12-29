@@ -10,30 +10,35 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link to="/" className="nav-logo">
-          🥝 Kiwi
+          🐦 Kiwi
         </Link>
 
         {/* Hamburger */}
-        <div className="hamburger" onClick={() => setOpen(!open)}>
+        <div
+          className={`hamburger ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+          role="button"
+          aria-label="Toggle navigation"
+        >
           <span></span>
           <span></span>
           <span></span>
         </div>
 
         {/* Nav Links */}
-        <div className={`nav-links ${open ? "show" : ""}`}>
+        <div className={`nav-links ${open ? "active" : ""}`}>
           <Link to="/" onClick={() => setOpen(false)}>Home</Link>
           <Link to="/why-kiwi" onClick={() => setOpen(false)}>Why Kiwi</Link>
           <Link to="/about" onClick={() => setOpen(false)}>About</Link>
           <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
 
-          {/* Updated Login Button */}
+          {/* Login Button */}
           <a
             href="http://app.kiwivoiceassistant.com"
             className="nav-btn"
-            onClick={() => setOpen(false)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
           >
             Login
           </a>

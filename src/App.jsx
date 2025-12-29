@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Routes,
@@ -23,6 +23,19 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+/* ================================
+   SCROLL TO TOP (HashRouter SAFE)
+================================ */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function AppWrapper() {
   const location = useLocation();
 
@@ -32,6 +45,8 @@ function AppWrapper() {
 
   return (
     <>
+      <ScrollToTop />
+
       {!hideNavbarAndFooter && <Navbar />}
 
       <Routes>
