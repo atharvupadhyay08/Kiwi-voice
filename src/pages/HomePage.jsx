@@ -22,9 +22,9 @@ const HomePage = () => {
             className="button-primary"
             onClick={() => navigate("/waitlist")}
           >
-            Join Now
+            Join Waitlist
           </button>
-
+{/* 
           <button
             className="button-secondary"
             onClick={() =>
@@ -34,7 +34,7 @@ const HomePage = () => {
             }
           >
             Learn More
-          </button>
+          </button> */}
         </div>
       </section>
 

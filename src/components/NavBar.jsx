@@ -11,7 +11,7 @@ export default function Navbar() {
 <Link to="/" className="nav-logo">
   {/* SVG already contains the brand name */}
   <img
-    src="./kiwilogo.svg"
+    src="./kiwilogo.png"
     alt="Kiwi"
     className="nav-logo-icon"
   />
