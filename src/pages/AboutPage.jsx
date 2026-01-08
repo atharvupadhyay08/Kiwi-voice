@@ -5,7 +5,7 @@ const AboutPage = () => {
     <div>
 
       {/* HERO */}
-      <section className="hero">
+      <section className="about-hero">
         <h1>About Kiwi</h1>
         <p>
           Our mission is simple: make technology disappear so seniors can live

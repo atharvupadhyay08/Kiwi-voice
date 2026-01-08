@@ -8,10 +8,14 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
 
-        {/* LOGO */}
-        <Link to="/" className="nav-logo">
-          🐦 Kiwi
-        </Link>
+<Link to="/" className="nav-logo">
+  {/* SVG already contains the brand name */}
+  <img
+    src="./kiwilogo.svg"
+    alt="Kiwi"
+    className="nav-logo-icon"
+  />
+</Link>
 
         {/* Hamburger */}
         <div

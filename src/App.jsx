@@ -22,6 +22,9 @@ import ContactPage from "./pages/ContactPage";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import WaitlistPage from "./pages/WaitlistPage";
+
+
 
 /* ================================
    SCROLL TO TOP (HashRouter SAFE)
@@ -54,6 +57,7 @@ function AppWrapper() {
         <Route path="/why-kiwi" element={<WhyKiwiPage />} />
         <Route path="/for-seniors" element={<ForSeniorsPage />} />
         <Route path="/for-facilities" element={<ForFacilitiesPage />} />
+        <Route path="/waitlist" element={<WaitlistPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
