@@ -6,16 +6,32 @@ const WaitlistPage = () => {
   const [source, setSource] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const waitlistData = { fullName, email, source };
-    console.log("Kiwi 1 Waitlist Registration:", waitlistData);
-
-    setSubmitted(true);
-    setFullName("");
-    setEmail("");
-    setSource("");
+  
+    const waitlistData = {
+      fullName,
+      email,
+      source
+    };
+  
+    try {
+      const res = await fetch("https://formspree.io/f/mbddrdkr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(waitlistData)
+      });
+  
+      if (!res.ok) throw new Error("Submission failed");
+  
+      setSubmitted(true);
+      setFullName("");
+      setEmail("");
+      setSource("");
+    } catch (err) {
+      alert("Something went wrong. Please try again.");
+      console.error(err);
+    }
   };
 
   return (
